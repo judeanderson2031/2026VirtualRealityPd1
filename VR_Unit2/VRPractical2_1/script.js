@@ -13,6 +13,14 @@ window.addEventListener("DOMContentLoaded",function() {
     createTree(x,0,z);
   }
    //Task 2: Use the createCloud(...)  to add several clouds to the scene at various positions.
+  
+   for(let i = 0; i < 100; i++){
+    let x = rnd(-20,20);
+    let z = rnd(-20,20);
+    createCloud(x,0,z);
+  }
+
+
 
    //Task 4: Use the createHouse(...)  to add several houses to the scene at various positions.
 })
@@ -54,5 +62,25 @@ function createTree(x, y, z){
   scene.append( tree )
 }
 
+
+
+function createCloud(x, y, z){
+  let cloud = document.createElement("a-entity");
+  
+  let pines = document.createElement("a-sphere");
+  pines.setAttribute("color","green");
+  pines.setAttribute("position","0 2 0");
+  pines.setAttribute("height","2");
+  tree.append( pines );
+
+  let stump = document.createElement("a-cylinder");
+  stump.setAttribute("position","0 1 0");
+  stump.setAttribute("color","brown");
+  stump.setAttribute("radius","0.25");
+  tree.append( stump );
+
+  tree.setAttribute("position",{x:x, y:y, z:z});
+  scene.append( tree )
+}
 
 
